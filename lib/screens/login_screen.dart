@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              style: TextStyle(color: Colors.blueAccent),
+              style: TextStyle(color: Colors.black),
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your email address'),
             ),
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              style: TextStyle(color: Colors.blueAccent),
+              style: TextStyle(color: Colors.black),
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password'),
             ),
