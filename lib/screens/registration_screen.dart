@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
+import '../Components/round_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const id = 'registation_screen';
@@ -8,6 +9,8 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,45 +32,36 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
+              textAlign: TextAlign.center,
+              decoration: kTextFieldDecoration.copyWith(
+                  hintText: 'Enter your email address'),
               style: TextStyle(color: Colors.black),
-              decoration:
-                  kTextFieldDecoration.copyWith(hintText: 'Enter your email address'),
+              onChanged: (value) {
+                email = value;
+              },
             ),
             SizedBox(
               height: 8.0,
             ),
             TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black),
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password'),
+              onChanged: (value) {
+                password = value;
+              },
             ),
             SizedBox(
               height: 24.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Implement registration functionality.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
+            RoundButton(
+              color: Colors.blueAccent,
+              title: 'Register',
+              onPressed: () {
+                print(email);
+                print(password);
+              },
             ),
           ],
         ),
