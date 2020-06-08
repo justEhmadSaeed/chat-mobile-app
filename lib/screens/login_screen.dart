@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -8,6 +10,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _auth = FirebaseAuth.instance;
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your email address'),
               onChanged: (value) {
-                //Do something with the user input.
+                email = value;
               },
             ),
             SizedBox(
@@ -48,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password'),
               onChanged: (value) {
-                //Do something with the user input.
+                password = value;
               },
             ),
             SizedBox(
@@ -61,8 +66,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(
-                  onPressed: () {
-                    //Implement login functionality.
+                  onPressed: () async {
+                    final user = await _auth.signInWithEmailAndPassword(
+                        email: email, password: password);
+                    if (user != null)
+                      Navigator.pushNamed(context, ChatScreen.id);
+                    try {} catch (e) {
+                      if (e == 'ERROR_INVALID_EMAIL')
+                        print('Invalid Email');
+                      else if (e == 'ERROR_WRONG_PASSWORD')
+                        print('Invalid Password');
+                      else if (e == 'ERROR_USER_NOT_FOUND')
+                        print('Invalid User');
+                    }
                   },
                   minWidth: 200.0,
                   height: 42.0,
