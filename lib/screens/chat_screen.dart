@@ -86,6 +86,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   return Column(
                     children: messageWidgets,
                   );
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
                 }
               },
             ),
