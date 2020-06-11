@@ -80,11 +80,16 @@ class _ChatScreenState extends State<ChatScreen> {
 
                     messageWidgets.add(Text(
                       '$messageText from $messageSender',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                      ),
                     ));
                   }
-                  return Column(
-                    children: messageWidgets,
+                  return Expanded(
+                    child: ListView(
+                      children: messageWidgets,
+                    ),
                   );
                 } else {
                   return Center(
