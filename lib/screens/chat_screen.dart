@@ -29,14 +29,6 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  void messageStream() async {
-    await for (var snapshot in _firestore.collection('messages').snapshots()) {
-      for (var message in snapshot.documents) {
-        print(message.data);
-      }
-    }
-  }
-
   @override
   void initState() {
     super.initState();
@@ -126,6 +118,7 @@ class MessageStream extends StatelessWidget {
           }
           return Expanded(
             child: ListView(
+              reverse: true,
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               children: messageWidgets,
             ),
