@@ -83,6 +83,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       showSpinner = false;
                     });
                   } catch (e) {
+                    setState(() {
+                      showSpinner = false;
+                    });
                     print(e);
                   }
                 },
