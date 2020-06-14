@@ -20,5 +20,5 @@ If you want to try this app in your android device, then all you need to do is:
 ## ⚡ Preview
 ![flash-chat](https://user-images.githubusercontent.com/46846821/84565386-341eaa00-ad82-11ea-92ce-dab6d56bbac9.gif)
 
-## 🔑LICENSE
+## 🔑 LICENSE
 - This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
